@@ -1,0 +1,14 @@
+pub fn std_vectorLcv_StringG_new_const() -> *mut c_void;
+pub fn std_vectorLcv_StringG_delete(instance: *mut c_void);
+pub fn std_vectorLcv_StringG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_StringG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcv_StringG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_StringG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcv_StringG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcv_StringG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcv_StringG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcv_StringG_clear(instance: *mut c_void);
+pub fn std_vectorLcv_StringG_push_const_String(instance: *mut c_void, val: *const c_char);
+pub fn std_vectorLcv_StringG_insert_size_t_const_String(instance: *mut c_void, index: size_t, val: *const c_char);
+pub fn std_vectorLcv_StringG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut *mut c_void);
+pub fn std_vectorLcv_StringG_set_size_t_const_String(instance: *mut c_void, index: size_t, val: *const c_char);

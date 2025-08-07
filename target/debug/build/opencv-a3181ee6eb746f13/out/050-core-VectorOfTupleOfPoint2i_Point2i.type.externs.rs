@@ -1,0 +1,14 @@
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_new_const() -> *mut c_void;
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_delete(instance: *mut c_void);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_clear(instance: *mut c_void);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_push_const_pairLcv_Point2i__cv_Point2iG(instance: *mut c_void, val: *const c_void);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_insert_size_t_const_pairLcv_Point2i__cv_Point2iG(instance: *mut c_void, index: size_t, val: *const c_void);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut *mut c_void);
+pub fn std_vectorLstd_pairLcv_Point2i__cv_Point2iGG_set_size_t_const_pairLcv_Point2i__cv_Point2iG(instance: *mut c_void, index: size_t, val: *const c_void);

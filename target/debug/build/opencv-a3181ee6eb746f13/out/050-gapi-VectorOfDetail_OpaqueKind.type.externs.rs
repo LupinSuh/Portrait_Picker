@@ -1,0 +1,18 @@
+pub fn std_vectorLcv_detail_OpaqueKindG_new_const() -> *mut c_void;
+pub fn std_vectorLcv_detail_OpaqueKindG_delete(instance: *mut c_void);
+pub fn std_vectorLcv_detail_OpaqueKindG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_detail_OpaqueKindG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcv_detail_OpaqueKindG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_detail_OpaqueKindG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcv_detail_OpaqueKindG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcv_detail_OpaqueKindG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcv_detail_OpaqueKindG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcv_detail_OpaqueKindG_clear(instance: *mut c_void);
+pub fn std_vectorLcv_detail_OpaqueKindG_push_const_OpaqueKind(instance: *mut c_void, val: crate::gapi::Detail_OpaqueKind);
+pub fn std_vectorLcv_detail_OpaqueKindG_insert_size_t_const_OpaqueKind(instance: *mut c_void, index: size_t, val: crate::gapi::Detail_OpaqueKind);
+pub fn std_vectorLcv_detail_OpaqueKindG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut crate::gapi::Detail_OpaqueKind);
+pub fn std_vectorLcv_detail_OpaqueKindG_set_size_t_const_OpaqueKind(instance: *mut c_void, index: size_t, val: crate::gapi::Detail_OpaqueKind);
+pub fn std_vectorLcv_detail_OpaqueKindG_clone_const(instance: *const c_void) -> *mut c_void;
+pub fn std_vectorLcv_detail_OpaqueKindG_data_const(instance: *const c_void) -> *const crate::gapi::Detail_OpaqueKind;
+pub fn std_vectorLcv_detail_OpaqueKindG_dataMut(instance: *mut c_void) -> *mut crate::gapi::Detail_OpaqueKind;
+pub fn cv_fromSlice_const_const_OpaqueKindX_size_t(data: *const crate::gapi::Detail_OpaqueKind, len: size_t) -> *mut c_void;

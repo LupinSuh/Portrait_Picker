@@ -1,0 +1,17 @@
+pub fn cv_dpm_DPMDetector_isEmpty_const(instance: *const c_void, ocvrs_return: *mut Result<bool>);
+pub fn cv_dpm_DPMDetector_detect_MatR_vectorLObjectDetectionGR(instance: *mut c_void, image: *mut c_void, objects: *mut c_void, ocvrs_return: *mut ResultVoid);
+pub fn cv_dpm_DPMDetector_getClassNames_const(instance: *const c_void, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_dpm_DPMDetector_getClassCount_const(instance: *const c_void, ocvrs_return: *mut Result<size_t>);
+pub fn cv_dpm_DPMDetector_create_const_vectorLstringGR_const_vectorLstringGR(filenames: *const c_void, class_names: *const c_void, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_dpm_DPMDetector_create_const_vectorLstringGR(filenames: *const c_void, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_dpm_DPMDetector_delete(instance: *mut c_void);
+pub fn cv_dpm_DPMDetector_ObjectDetection_ObjectDetection(ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_dpm_DPMDetector_ObjectDetection_ObjectDetection_const_RectR_float_int(rect: *const core::Rect, score: f32, class_id: i32, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_dpm_DPMDetector_ObjectDetection_ObjectDetection_const_RectR_float(rect: *const core::Rect, score: f32, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_dpm_DPMDetector_ObjectDetection_propRect_const(instance: *const c_void, ocvrs_return: *mut core::Rect);
+pub fn cv_dpm_DPMDetector_ObjectDetection_propRect_const_Rect(instance: *mut c_void, val: *const core::Rect);
+pub fn cv_dpm_DPMDetector_ObjectDetection_propScore_const(instance: *const c_void) -> f32;
+pub fn cv_dpm_DPMDetector_ObjectDetection_propScore_const_float(instance: *mut c_void, val: f32);
+pub fn cv_dpm_DPMDetector_ObjectDetection_propClassID_const(instance: *const c_void) -> i32;
+pub fn cv_dpm_DPMDetector_ObjectDetection_propClassID_const_int(instance: *mut c_void, val: i32);
+pub fn cv_dpm_DPMDetector_ObjectDetection_delete(instance: *mut c_void);

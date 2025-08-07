@@ -1,0 +1,14 @@
+pub fn std_vectorLboolG_new_const() -> *mut c_void;
+pub fn std_vectorLboolG_delete(instance: *mut c_void);
+pub fn std_vectorLboolG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLboolG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLboolG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLboolG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLboolG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLboolG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLboolG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLboolG_clear(instance: *mut c_void);
+pub fn std_vectorLboolG_push_const_bool(instance: *mut c_void, val: bool);
+pub fn std_vectorLboolG_insert_size_t_const_bool(instance: *mut c_void, index: size_t, val: bool);
+pub fn std_vectorLboolG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut bool);
+pub fn std_vectorLboolG_set_size_t_const_bool(instance: *mut c_void, index: size_t, val: bool);

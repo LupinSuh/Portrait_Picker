@@ -1,0 +1,18 @@
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_new_const() -> *mut c_void;
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_delete(instance: *mut c_void);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_clear(instance: *mut c_void);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_push_const_FeatureIndex(instance: *mut c_void, val: crate::flann::feature_index);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_insert_size_t_const_FeatureIndex(instance: *mut c_void, index: size_t, val: crate::flann::feature_index);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut crate::flann::feature_index);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_set_size_t_const_FeatureIndex(instance: *mut c_void, index: size_t, val: crate::flann::feature_index);
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_clone_const(instance: *const c_void) -> *mut c_void;
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_data_const(instance: *const c_void) -> *const crate::flann::feature_index;
+pub fn std_vectorLcvflann_lsh_FeatureIndexG_dataMut(instance: *mut c_void) -> *mut crate::flann::feature_index;
+pub fn cv_fromSlice_const_const_FeatureIndexX_size_t(data: *const crate::flann::feature_index, len: size_t) -> *mut c_void;

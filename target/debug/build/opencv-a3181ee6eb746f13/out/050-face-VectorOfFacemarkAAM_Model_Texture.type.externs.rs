@@ -1,0 +1,14 @@
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_new_const() -> *mut c_void;
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_delete(instance: *mut c_void);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_clear(instance: *mut c_void);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_push_const_Texture(instance: *mut c_void, val: *const c_void);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_insert_size_t_const_Texture(instance: *mut c_void, index: size_t, val: *const c_void);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut *mut c_void);
+pub fn std_vectorLcv_face_FacemarkAAM_Model_TextureG_set_size_t_const_Texture(instance: *mut c_void, index: size_t, val: *const c_void);

@@ -1,0 +1,18 @@
+pub fn std_vectorLcv_flann_FlannIndexTypeG_new_const() -> *mut c_void;
+pub fn std_vectorLcv_flann_FlannIndexTypeG_delete(instance: *mut c_void);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_flann_FlannIndexTypeG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcv_flann_FlannIndexTypeG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_flann_FlannIndexTypeG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_clear(instance: *mut c_void);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_push_const_FlannIndexType(instance: *mut c_void, val: crate::flann::FlannIndexType);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_insert_size_t_const_FlannIndexType(instance: *mut c_void, index: size_t, val: crate::flann::FlannIndexType);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut crate::flann::FlannIndexType);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_set_size_t_const_FlannIndexType(instance: *mut c_void, index: size_t, val: crate::flann::FlannIndexType);
+pub fn std_vectorLcv_flann_FlannIndexTypeG_clone_const(instance: *const c_void) -> *mut c_void;
+pub fn std_vectorLcv_flann_FlannIndexTypeG_data_const(instance: *const c_void) -> *const crate::flann::FlannIndexType;
+pub fn std_vectorLcv_flann_FlannIndexTypeG_dataMut(instance: *mut c_void) -> *mut crate::flann::FlannIndexType;
+pub fn cv_fromSlice_const_const_FlannIndexTypeX_size_t(data: *const crate::flann::FlannIndexType, len: size_t) -> *mut c_void;

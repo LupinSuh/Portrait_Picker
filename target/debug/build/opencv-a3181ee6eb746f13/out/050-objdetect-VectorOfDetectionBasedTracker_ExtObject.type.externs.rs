@@ -1,0 +1,14 @@
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_new_const() -> *mut c_void;
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_delete(instance: *mut c_void);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_clear(instance: *mut c_void);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_push_const_ExtObject(instance: *mut c_void, val: *const c_void);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_insert_size_t_const_ExtObject(instance: *mut c_void, index: size_t, val: *const c_void);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut *mut c_void);
+pub fn std_vectorLcv_DetectionBasedTracker_ExtObjectG_set_size_t_const_ExtObject(instance: *mut c_void, index: size_t, val: *const c_void);

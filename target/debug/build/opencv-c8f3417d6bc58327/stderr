@@ -1,0 +1,203 @@
+=== Crate version: 0.95.1
+=== Environment configuration:
+===   OPENCV_PACKAGE_NAME = None
+===   OPENCV_PKGCONFIG_NAME = None
+===   OPENCV_CMAKE_NAME = None
+===   OPENCV_CMAKE_BIN = None
+===   OPENCV_VCPKG_NAME = None
+===   OPENCV_LINK_LIBS = None
+===   OPENCV_LINK_PATHS = None
+===   OPENCV_INCLUDE_PATHS = None
+===   OPENCV_DISABLE_PROBES = None
+===   OPENCV_MSVC_CRT = None
+===   CMAKE_PREFIX_PATH = None
+===   OpenCV_DIR = None
+===   PKG_CONFIG_PATH = None
+===   VCPKG_ROOT = None
+===   VCPKGRS_DYNAMIC = None
+===   VCPKGRS_TRIPLET = None
+===   OCVRS_DOCS_GENERATE_DIR = None
+===   DOCS_RS = None
+===   PATH = Some("/Users/lupin/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Applications/iTerm.app/Contents/Resources/utilities")
+=== Enabled features:
+===   HIGHGUI
+===   IMGCODECS
+===   IMGPROC
+===   OBJDETECT
+=== Detected probe priority boost based on environment vars: pkg_config: false, cmake: false, vcpkg: false
+=== Probing the OpenCV library in the following order: environment, pkg_config, cmake, vcpkg_cmake, vcpkg
+=== Can't probe using: environment, continuing with other methods because: Some environment variables are missing
+=== Probing OpenCV library using pkg_config
+=== Successfully probed using: pkg_config
+=== OpenCV library configuration: Library {
+    include_paths: [
+        "/opt/homebrew/opt/opencv/include/opencv4",
+    ],
+    version: Version {
+        major: 4,
+        minor: 12,
+        patch: 0,
+    },
+    inherent_features: [
+        "eigen",
+        "openjpeg",
+        "jpeg",
+        "opencl",
+        "opencl_static",
+        "openexr",
+        "png",
+        "pthread",
+        "pthreads_pf",
+        "tbb",
+        "tiff",
+        "lapack",
+    ],
+    cargo_metadata: [
+        "cargo::rustc-link-search=/opt/homebrew/opt/opencv/lib",
+        "cargo::rustc-link-search=framework=/opt/homebrew/opt/opencv/lib",
+        "cargo::rustc-link-lib=opencv_gapi",
+        "cargo::rustc-link-lib=opencv_stitching",
+        "cargo::rustc-link-lib=opencv_alphamat",
+        "cargo::rustc-link-lib=opencv_aruco",
+        "cargo::rustc-link-lib=opencv_bgsegm",
+        "cargo::rustc-link-lib=opencv_bioinspired",
+        "cargo::rustc-link-lib=opencv_ccalib",
+        "cargo::rustc-link-lib=opencv_dnn_objdetect",
+        "cargo::rustc-link-lib=opencv_dnn_superres",
+        "cargo::rustc-link-lib=opencv_dpm",
+        "cargo::rustc-link-lib=opencv_face",
+        "cargo::rustc-link-lib=opencv_freetype",
+        "cargo::rustc-link-lib=opencv_fuzzy",
+        "cargo::rustc-link-lib=opencv_hfs",
+        "cargo::rustc-link-lib=opencv_img_hash",
+        "cargo::rustc-link-lib=opencv_intensity_transform",
+        "cargo::rustc-link-lib=opencv_line_descriptor",
+        "cargo::rustc-link-lib=opencv_mcc",
+        "cargo::rustc-link-lib=opencv_quality",
+        "cargo::rustc-link-lib=opencv_rapid",
+        "cargo::rustc-link-lib=opencv_reg",
+        "cargo::rustc-link-lib=opencv_rgbd",
+        "cargo::rustc-link-lib=opencv_saliency",
+        "cargo::rustc-link-lib=opencv_sfm",
+        "cargo::rustc-link-lib=opencv_signal",
+        "cargo::rustc-link-lib=opencv_stereo",
+        "cargo::rustc-link-lib=opencv_structured_light",
+        "cargo::rustc-link-lib=opencv_phase_unwrapping",
+        "cargo::rustc-link-lib=opencv_superres",
+        "cargo::rustc-link-lib=opencv_optflow",
+        "cargo::rustc-link-lib=opencv_surface_matching",
+        "cargo::rustc-link-lib=opencv_tracking",
+        "cargo::rustc-link-lib=opencv_highgui",
+        "cargo::rustc-link-lib=opencv_datasets",
+        "cargo::rustc-link-lib=opencv_text",
+        "cargo::rustc-link-lib=opencv_plot",
+        "cargo::rustc-link-lib=opencv_videostab",
+        "cargo::rustc-link-lib=opencv_videoio",
+        "cargo::rustc-link-lib=opencv_viz",
+        "cargo::rustc-link-lib=opencv_wechat_qrcode",
+        "cargo::rustc-link-lib=opencv_xfeatures2d",
+        "cargo::rustc-link-lib=opencv_shape",
+        "cargo::rustc-link-lib=opencv_ml",
+        "cargo::rustc-link-lib=opencv_ximgproc",
+        "cargo::rustc-link-lib=opencv_video",
+        "cargo::rustc-link-lib=opencv_xobjdetect",
+        "cargo::rustc-link-lib=opencv_objdetect",
+        "cargo::rustc-link-lib=opencv_calib3d",
+        "cargo::rustc-link-lib=opencv_imgcodecs",
+        "cargo::rustc-link-lib=opencv_features2d",
+        "cargo::rustc-link-lib=opencv_dnn",
+        "cargo::rustc-link-lib=opencv_flann",
+        "cargo::rustc-link-lib=opencv_xphoto",
+        "cargo::rustc-link-lib=opencv_photo",
+        "cargo::rustc-link-lib=opencv_imgproc",
+        "cargo::rustc-link-lib=opencv_core",
+    ],
+}
+=== Found OpenCV version: 4.12.0 in headers located at: /opt/homebrew/opt/opencv/include/opencv4
+=== Detected OpenCV module header dir at: /opt/homebrew/opt/opencv/include/opencv4/opencv2
+=== Generating code in: /Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out
+=== Placing generated bindings into: /Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out/opencv
+=== Using OpenCV headers from: /opt/homebrew/opt/opencv/include/opencv4
+=== Clang: Homebrew clang version 20.1.8
+=== Clang command line args: [
+    "-isystem/usr/local/include",
+    "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1",
+    "-isystem/Library/Developer/CommandLineTools/usr/lib/clang/17/include",
+    "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include",
+    "-isystem/Library/Developer/CommandLineTools/usr/include",
+    "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks",
+    "-I/opt/homebrew/Cellar/opencv/4.12.0/include/opencv4",
+    "-F/opt/homebrew/Cellar/opencv/4.12.0/include/opencv4",
+    "-I/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp",
+    "-F/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp",
+    "-DOCVRS_PARSING_HEADERS",
+    "-includeocvrs_common.hpp",
+    "-std=c++17",
+]
+=== Using environment job server with the the amount of available jobs: 10
+=== Generating 5 modules
+=== Running: "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-05845291d52c70ad/build-script-build" "/opt/homebrew/opt/opencv/include/opencv4" "/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp" "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out" "core" ""
+=== Running: "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-05845291d52c70ad/build-script-build" "/opt/homebrew/opt/opencv/include/opencv4" "/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp" "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out" "highgui" ""
+=== Running: "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-05845291d52c70ad/build-script-build" "/opt/homebrew/opt/opencv/include/opencv4" "/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp" "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out" "imgproc" ""
+=== Running: "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-05845291d52c70ad/build-script-build" "/opt/homebrew/opt/opencv/include/opencv4" "/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp" "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out" "imgcodecs" ""
+=== Running: "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-05845291d52c70ad/build-script-build" "/opt/homebrew/opt/opencv/include/opencv4" "/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp" "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out" "objdetect" ""
+=== Generated module bindings: highgui in: 590.338666ms
+=== Generated module bindings: imgcodecs in: 602.150042ms
+=== Generated module bindings: objdetect in: 946.402167ms
+=== Generated module bindings: imgproc in: 1.039987292s
+=== Generated module bindings: core in: 1.67141375s
+=== Total binding generation time: 1.671543958s
+=== Total binding collection time: 21.898875ms
+=== Compiler information: Tool {
+    path: "c++",
+    cc_wrapper_path: None,
+    cc_wrapper_args: [],
+    args: [
+        "-O0",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fPIC",
+        "-gdwarf-2",
+        "-fno-omit-frame-pointer",
+        "--target=arm64-apple-macosx",
+        "-mmacosx-version-min=15.5",
+        "-std=c++17",
+        "-I",
+        "/Users/lupin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.95.1/src_cpp",
+        "-I",
+        "/Users/lupin/Code/Python/face_detector/target/debug/build/opencv-c8f3417d6bc58327/out",
+        "-I",
+        ".",
+        "-I",
+        "/opt/homebrew/opt/opencv/include/opencv4",
+        "-Wall",
+        "-Wextra",
+        "-Wno-deprecated-declarations",
+        "-Wno-deprecated-copy",
+        "-Wno-unused-parameter",
+        "-Wno-sign-compare",
+        "-Wno-comment",
+        "-Wno-uninitialized",
+        "-Wno-unused-variable",
+        "-Wno-ignored-qualifiers",
+        "-Wno-return-type-c-linkage",
+        "-Wno-overloaded-virtual",
+        "-Wno-delete-non-virtual-dtor",
+        "-F/opt/homebrew/opt/opencv/include/opencv4",
+        "-DOCVRS_FFI_EXPORT_SUFFIX=_0_95_1",
+        "-DOCVRS_TARGET_OS_WINDOWS=0",
+    ],
+    env: [
+        (
+            "LC_ALL",
+            "C",
+        ),
+    ],
+    family: Clang {
+        zig_cc: false,
+    },
+    cuda: false,
+    removed_args: [],
+    has_internal_target_arg: false,
+}
+=== Total cpp build time: 3.033989542s

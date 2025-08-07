@@ -1,0 +1,14 @@
+pub fn cv_stereo_MatchQuasiDense_MatchQuasiDense(ocvrs_return: *mut Result<crate::stereo::MatchQuasiDense>);
+pub fn cv_stereo_MatchQuasiDense_operatorL_const_const_MatchQuasiDenseR(instance: *const crate::stereo::MatchQuasiDense, rhs: *const crate::stereo::MatchQuasiDense, ocvrs_return: *mut Result<bool>);
+pub fn cv_stereo_QuasiDenseStereo_loadParameters_String(instance: *mut c_void, filepath: *const c_char, ocvrs_return: *mut Result<i32>);
+pub fn cv_stereo_QuasiDenseStereo_saveParameters_String(instance: *mut c_void, filepath: *const c_char, ocvrs_return: *mut Result<i32>);
+pub fn cv_stereo_QuasiDenseStereo_getSparseMatches_vectorLMatchQuasiDenseGR(instance: *mut c_void, s_matches: *mut c_void, ocvrs_return: *mut ResultVoid);
+pub fn cv_stereo_QuasiDenseStereo_getDenseMatches_vectorLMatchQuasiDenseGR(instance: *mut c_void, dense_matches: *mut c_void, ocvrs_return: *mut ResultVoid);
+pub fn cv_stereo_QuasiDenseStereo_process_const_MatR_const_MatR(instance: *mut c_void, img_left: *const c_void, img_right: *const c_void, ocvrs_return: *mut ResultVoid);
+pub fn cv_stereo_QuasiDenseStereo_getMatch_const_int_const_int(instance: *mut c_void, x: i32, y: i32, ocvrs_return: *mut Result<core::Point2f>);
+pub fn cv_stereo_QuasiDenseStereo_getDisparity(instance: *mut c_void, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_stereo_QuasiDenseStereo_create_Size_String(mono_img_size: *const core::Size, param_filepath: *const c_char, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_stereo_QuasiDenseStereo_create_Size(mono_img_size: *const core::Size, ocvrs_return: *mut Result<*mut c_void>);
+pub fn cv_stereo_QuasiDenseStereo_propParam_const(instance: *const c_void, ocvrs_return: *mut crate::stereo::PropagationParameters);
+pub fn cv_stereo_QuasiDenseStereo_propParam_const_PropagationParameters(instance: *mut c_void, val: *const crate::stereo::PropagationParameters);
+pub fn cv_stereo_QuasiDenseStereo_delete(instance: *mut c_void);

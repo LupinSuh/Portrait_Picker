@@ -1,0 +1,14 @@
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_new_const() -> *mut c_void;
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_delete(instance: *mut c_void);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_clear(instance: *mut c_void);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_push_const_vectorLKeyLineG(instance: *mut c_void, val: *const c_void);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_insert_size_t_const_vectorLKeyLineG(instance: *mut c_void, index: size_t, val: *const c_void);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut *mut c_void);
+pub fn std_vectorLstd_vectorLcv_line_descriptor_KeyLineGG_set_size_t_const_vectorLKeyLineG(instance: *mut c_void, index: size_t, val: *const c_void);

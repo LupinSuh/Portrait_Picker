@@ -1,0 +1,17 @@
+pub fn std_vectorLstd_vectorLcv_Point3dGG_new_const() -> *mut c_void;
+pub fn std_vectorLstd_vectorLcv_Point3dGG_delete(instance: *mut c_void);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLstd_vectorLcv_Point3dGG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLstd_vectorLcv_Point3dGG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLstd_vectorLcv_Point3dGG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_clear(instance: *mut c_void);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_push_const_vectorLPoint3dG(instance: *mut c_void, val: *const c_void);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_insert_size_t_const_vectorLPoint3dG(instance: *mut c_void, index: size_t, val: *const c_void);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut *mut c_void);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_set_size_t_const_vectorLPoint3dG(instance: *mut c_void, index: size_t, val: *const c_void);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_inputArray_const(instance: *const c_void, ocvrs_return: *mut Result<*mut c_void>);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_outputArray(instance: *mut c_void, ocvrs_return: *mut Result<*mut c_void>);
+pub fn std_vectorLstd_vectorLcv_Point3dGG_inputOutputArray(instance: *mut c_void, ocvrs_return: *mut Result<*mut c_void>);

@@ -1,0 +1,18 @@
+pub fn std_vectorLcv_linemod_FeatureG_new_const() -> *mut c_void;
+pub fn std_vectorLcv_linemod_FeatureG_delete(instance: *mut c_void);
+pub fn std_vectorLcv_linemod_FeatureG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_linemod_FeatureG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcv_linemod_FeatureG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_linemod_FeatureG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcv_linemod_FeatureG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcv_linemod_FeatureG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcv_linemod_FeatureG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcv_linemod_FeatureG_clear(instance: *mut c_void);
+pub fn std_vectorLcv_linemod_FeatureG_push_const_Feature(instance: *mut c_void, val: *const crate::rgbd::LineMod_Feature);
+pub fn std_vectorLcv_linemod_FeatureG_insert_size_t_const_Feature(instance: *mut c_void, index: size_t, val: *const crate::rgbd::LineMod_Feature);
+pub fn std_vectorLcv_linemod_FeatureG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut crate::rgbd::LineMod_Feature);
+pub fn std_vectorLcv_linemod_FeatureG_set_size_t_const_Feature(instance: *mut c_void, index: size_t, val: *const crate::rgbd::LineMod_Feature);
+pub fn std_vectorLcv_linemod_FeatureG_clone_const(instance: *const c_void) -> *mut c_void;
+pub fn std_vectorLcv_linemod_FeatureG_data_const(instance: *const c_void) -> *const crate::rgbd::LineMod_Feature;
+pub fn std_vectorLcv_linemod_FeatureG_dataMut(instance: *mut c_void) -> *mut crate::rgbd::LineMod_Feature;
+pub fn cv_fromSlice_const_const_FeatureX_size_t(data: *const crate::rgbd::LineMod_Feature, len: size_t) -> *mut c_void;

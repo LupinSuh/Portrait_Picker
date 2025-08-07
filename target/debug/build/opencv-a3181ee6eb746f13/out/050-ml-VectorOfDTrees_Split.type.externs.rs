@@ -1,0 +1,14 @@
+pub fn std_vectorLcv_ml_DTrees_SplitG_new_const() -> *mut c_void;
+pub fn std_vectorLcv_ml_DTrees_SplitG_delete(instance: *mut c_void);
+pub fn std_vectorLcv_ml_DTrees_SplitG_len_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_ml_DTrees_SplitG_isEmpty_const(instance: *const c_void) -> bool;
+pub fn std_vectorLcv_ml_DTrees_SplitG_capacity_const(instance: *const c_void) -> size_t;
+pub fn std_vectorLcv_ml_DTrees_SplitG_shrinkToFit(instance: *mut c_void);
+pub fn std_vectorLcv_ml_DTrees_SplitG_reserve_size_t(instance: *mut c_void, additional: size_t);
+pub fn std_vectorLcv_ml_DTrees_SplitG_remove_size_t(instance: *mut c_void, index: size_t);
+pub fn std_vectorLcv_ml_DTrees_SplitG_swap_size_t_size_t(instance: *mut c_void, index1: size_t, index2: size_t);
+pub fn std_vectorLcv_ml_DTrees_SplitG_clear(instance: *mut c_void);
+pub fn std_vectorLcv_ml_DTrees_SplitG_push_const_Split(instance: *mut c_void, val: *const c_void);
+pub fn std_vectorLcv_ml_DTrees_SplitG_insert_size_t_const_Split(instance: *mut c_void, index: size_t, val: *const c_void);
+pub fn std_vectorLcv_ml_DTrees_SplitG_get_const_size_t(instance: *const c_void, index: size_t, ocvrs_return: *mut *mut c_void);
+pub fn std_vectorLcv_ml_DTrees_SplitG_set_size_t_const_Split(instance: *mut c_void, index: size_t, val: *const c_void);
