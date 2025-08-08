@@ -1,4 +1,0 @@
-pub fn cv_PtrLcv_ximgproc_EdgeBoxesG_getInnerPtr_const(instance: *const c_void) -> *mut c_void;
-pub fn cv_PtrLcv_ximgproc_EdgeBoxesG_getInnerPtrMut(instance: *mut c_void) -> *mut c_void;
-pub fn cv_PtrLcv_ximgproc_EdgeBoxesG_delete(instance: *mut c_void);
-pub fn cv_PtrLcv_ximgproc_EdgeBoxesG_to_PtrOfAlgorithm(instance: *mut c_void) -> *mut c_void;

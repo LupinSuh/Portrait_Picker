@@ -9,6 +9,10 @@ use opencv::{
 };
 use indicatif::{ProgressBar, ProgressStyle};
 use walkdir::WalkDir;
+use reqwest;
+use tokio;
+
+const CASCADE_DOWNLOAD_URL: &str = "https://raw.githubusercontent.com/opencv/opencv/4.x/data/haarcascades/haarcascade_frontalface_default.xml";
 
 // 작업 결과를 나타내는 열거형
 enum Classification {
@@ -36,7 +40,8 @@ impl FailReason {
     }
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 명령줄 인자에서 경로를 가져옵니다。
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
@@ -46,7 +51,25 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let image_dir = Path::new(&args[1]);
 
     // 얼굴 검출을 위한 Haar Cascade 분류기 파일 경로
-    let cascade_path = "/opt/homebrew/share/opencv4/haarcascades/haarcascade_frontalface_default.xml";
+    let cascade_path = if let Some(path) = env::var_os("FACE_DETECTOR_CASCADE_PATH") {
+        PathBuf::from(path)
+    } else {
+        let mut path = env::current_exe()?;
+        path.pop(); // Remove executable name
+        let models_dir = path.join("models");
+        fs::create_dir_all(&models_dir)?; // Ensure models directory exists
+        models_dir.join("haarcascade_frontalface_default.xml")
+    };
+    let cascade_path_str = cascade_path.to_str().ok_or("Invalid cascade path")?;
+
+    // 모델 파일이 없으면 다운로드합니다.
+    if !cascade_path.exists() {
+        println!("모델 파일이 없습니다. 다운로드 중...");
+        let response = reqwest::get(CASCADE_DOWNLOAD_URL).await?;
+        let content = response.bytes().await?;
+        fs::write(&cascade_path, &content)?;
+        println!("모델 파일 다운로드 완료: {}", cascade_path_str);
+    }
 
     // OpenCV 파라미터 설정
     let scale_factor = 1.1;
@@ -61,9 +84,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let image_min_height = 512;
 
     // Haar Cascade 분류기를 로드합니다。
-    let mut cascade = objdetect::CascadeClassifier::new(cascade_path)?;
+    let mut cascade = objdetect::CascadeClassifier::new(cascade_path_str)?;
     if cascade.empty()? {
-        panic!("Error: Cascade Classifier not loaded. Check the path: {}", cascade_path);
+        panic!("Error: Cascade Classifier not loaded. Check the path: {}", cascade_path_str);
     }
 
     let mut entries: Vec<PathBuf> = WalkDir::new(image_dir)

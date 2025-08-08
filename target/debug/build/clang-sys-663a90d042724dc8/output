@@ -1,2 +1,0 @@
-cargo:rustc-link-search=/opt/homebrew/opt/llvm/lib
-cargo:rustc-link-lib=dylib=clang
