@@ -5,14 +5,18 @@ use opencv::{
     prelude::*,
     core,
     imgcodecs,
-    objdetect,
+    
+    dnn, // Add dnn
 };
 use indicatif::{ProgressBar, ProgressStyle};
 use walkdir::WalkDir;
-use reqwest;
+
 use tokio;
 
-const CASCADE_DOWNLOAD_URL: &str = "https://raw.githubusercontent.com/opencv/opencv/4.x/data/haarcascades/haarcascade_frontalface_default.xml";
+// DNN 모델 파일 경로 및 설정
+const DNN_MODEL_PROTOTXT: &str = "deploy.prototxt";
+const DNN_MODEL_CAFFEMODEL: &str = "res10_300x300_ssd_iter_140000.caffemodel";
+const DNN_CONFIDENCE_THRESHOLD: f32 = 0.5; // 얼굴 검출 최소 신뢰도
 
 // 작업 결과를 나타내는 열거형
 enum Classification {
@@ -50,44 +54,45 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     let image_dir = Path::new(&args[1]);
 
-    // 얼굴 검출을 위한 Haar Cascade 분류기 파일 경로
-    let cascade_path = if let Some(path) = env::var_os("FACE_DETECTOR_CASCADE_PATH") {
-        PathBuf::from(path)
-    } else {
-        let mut path = env::current_exe()?;
-        path.pop(); // Remove executable name
-        let models_dir = path.join("models");
-        fs::create_dir_all(&models_dir)?; // Ensure models directory exists
-        models_dir.join("haarcascade_frontalface_default.xml")
-    };
-    let cascade_path_str = cascade_path.to_str().ok_or("Invalid cascade path")?;
+    // DNN 모델 파일 경로
+    let project_root = env::current_dir()?; // Get the current working directory (project root)
+    let models_dir = project_root.join("models");
+    fs::create_dir_all(&models_dir)?; // Ensure models directory exists
 
-    // 모델 파일이 없으면 다운로드합니다.
-    if !cascade_path.exists() {
-        println!("모델 파일이 없습니다. 다운로드 중...");
-        let response = reqwest::get(CASCADE_DOWNLOAD_URL).await?;
-        let content = response.bytes().await?;
-        fs::write(&cascade_path, &content)?;
-        println!("모델 파일 다운로드 완료: {}", cascade_path_str);
+    let prototxt_path = models_dir.join(DNN_MODEL_PROTOTXT);
+    let caffemodel_path = models_dir.join(DNN_MODEL_CAFFEMODEL);
+
+    // 모델 파일이 없으면 사용자에게 알립니다.
+    if !prototxt_path.exists() || !caffemodel_path.exists() {
+        println!("DNN 모델 파일이 없습니다. 'models' 디렉토리에 '{}'와 '{}' 파일을 넣어주세요.",
+                 DNN_MODEL_PROTOTXT, DNN_MODEL_CAFFEMODEL);
+        return Ok(());
     }
 
-    // OpenCV 파라미터 설정
-    let scale_factor = 1.1;
-    let min_neighbors = 3; 
-    let min_size_width = 256; 
-    let min_size_height = 256; 
-    let max_size_width = 1536; 
-    let max_size_height = 1536; 
+    // OpenCV 파라미터 설정 (DNN에 맞게 조정)
+    let min_size_width = 300; // DNN 모델의 입력 크기에 맞춤
+    let min_size_height = 300; // DNN 모델의 입력 크기에 맞춤
+    let max_size_width = 1536; // 이미지 크기 제한은 유지
+    let max_size_height = 1536; // 이미지 크기 제한은 유지
 
     // 이미지 자체의 최소 크기 제한
     let image_min_width = 512;
     let image_min_height = 512;
 
-    // Haar Cascade 분류기를 로드합니다。
-    let mut cascade = objdetect::CascadeClassifier::new(cascade_path_str)?;
-    if cascade.empty()? {
-        panic!("Error: Cascade Classifier not loaded. Check the path: {}", cascade_path_str);
+    // DNN 모델을 로드합니다.
+    let mut net = dnn::read_net_from_caffe(
+        prototxt_path.to_str().ok_or("Invalid prototxt path")?,
+        caffemodel_path.to_str().ok_or("Invalid caffemodel path")?,
+    )?;
+    if net.empty()? {
+        panic!("Error: DNN model not loaded. Check the paths: {} and {}",
+                prototxt_path.display(), caffemodel_path.display());
     }
+    
+
+    // Set preferred backend and target
+    net.set_preferable_backend(dnn::DNN_BACKEND_OPENCV)?;
+    net.set_preferable_target(dnn::DNN_TARGET_CPU)?;
 
     let mut entries: Vec<PathBuf> = WalkDir::new(image_dir)
         .into_iter()
@@ -125,10 +130,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
 
         bar.set_message(format!(
-            "  Params (scaleFactor: {}, minNeighbors: {}, minSize: {}x{}, maxSize: {}x{}, ImageMinSize: {}x{})
-  Scanning: {}\n  Pass: {} | Fail (No Face: {}, Multi: {}, LowRes: {}, NotImg: {})", 
-            scale_factor, min_neighbors, min_size_width, min_size_height, max_size_width, max_size_height,
-            image_min_width, image_min_height,
+            "  Params (Min: {}x{}, Max: {}x{}, ImageMin: {}x{}, Conf: {})
+  Scanning: {}
+  Pass: {} | Fail (No Face: {}, Multi: {}, LowRes: {}, NotImg: {})", 
+            min_size_width, min_size_height, max_size_width, max_size_height,
+            image_min_width, image_min_height, DNN_CONFIDENCE_THRESHOLD,
             current_dir_display,
             pass_count, no_face_count, multi_face_count, low_res_count, not_image_count));
 
@@ -143,17 +149,58 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             
             let classification = match extension.as_str() {
                 "jpg" | "jpeg" | "png" | "gif" | "webp" => {
+                    
                     let img = imgcodecs::imread(path.to_str().unwrap(), imgcodecs::IMREAD_COLOR)?;
                     if img.empty() {
+                        
                         Classification::Fail(FailReason::NotAnImage)
                     } else {
-                        let mut faces = core::Vector::new();
-                        let gray_img = imgcodecs::imread(path.to_str().unwrap(), imgcodecs::IMREAD_GRAYSCALE)?;
-                        cascade.detect_multi_scale(&gray_img, &mut faces, scale_factor, min_neighbors, objdetect::CASCADE_SCALE_IMAGE, core::Size::new(min_size_width, min_size_height), core::Size::new(max_size_width, max_size_height))?;
                         
-                        let faces_found = faces.len();
                         let (width, height) = (img.cols(), img.rows());
                         let good_res = width >= image_min_width && height >= image_min_height;
+
+                        // Convert image to blob
+                        
+                        let blob = dnn::blob_from_image(
+                            &img,
+                            1.0, // scale factor (will be applied in set_input)
+                            core::Size::new(300, 300), // DNN input size
+                            core::Scalar::default(), // No mean subtraction here
+                            false, // swap RB
+                            false, // crop
+                            core::CV_32F, // depth
+                        )?;
+
+                        
+                        net.set_input(&blob, "", 1.0, core::Scalar::new(104.0, 177.0, 123.0, 0.0))?;
+                        // Get output layer names
+                        let out_names = net.get_unconnected_out_layers_names()?;
+                        
+
+                        let output_layer_name = if out_names.is_empty() {
+                            panic!("Error: No output layers found in the DNN model.");
+                        } else {
+                            out_names.get(0).unwrap()
+                        };
+
+                        // Perform forward pass (detections will be populated by get_blob later)
+                        let mut output_blobs = core::Vector::<core::Mat>::new();
+                        net.forward(&mut output_blobs, &core::Vector::<String>::from_iter(vec![output_layer_name.as_str()]))?;
+
+                        // Get the detections Mat from the output_blobs vector
+                        let detections = output_blobs.get(0)?;
+
+                        
+                        let mut faces_found = 0;
+                        // detections is a 4D matrix: [1, 1, N, 7]
+                        // where N is the number of detections, and 7 is [batchId, classId, confidence, left, top, right, bottom]
+                        let data = detections.data_typed::<f32>()?;
+                        for i in 0..detections.rows() {
+                            let confidence = data[(i * 7 + 2) as usize];
+                            if confidence > DNN_CONFIDENCE_THRESHOLD {
+                                faces_found += 1;
+                            }
+                        }
 
                         if faces_found == 1 && good_res {
                             Classification::Pass
